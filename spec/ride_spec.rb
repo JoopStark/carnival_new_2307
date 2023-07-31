@@ -39,6 +39,41 @@ describe Ride do
       expect(ride1.total_revenue).to eq(3)
     end
 
+    it "will not board riders that who do not have that excitement level" do
+      visitor3.add_preference(:thrilling)
+
+      expect(visitor1.spending_money).to eq(8)
+      expect(visitor3.spending_money).to eq(15)
+      
+      ride3.board_rider(visitor1)
+      ride3.board_rider(visitor3)
+      
+      expect(visitor1.spending_money).to eq(8)
+      expect(visitor3.spending_money).to eq(13)
+      expect(ride3.rider_log).to eq(rider3 => 1)
+      expect(ride3.total_revenue).to eq(2)
+    end
+
     it "will not board riders that are not tall enough" do
+      visitor2.add_preference(:gentle)
+      visitor2.add_preference(:thrilling)
+      visitor3.add_preference(:thrilling)
+
+      expect(visitor2.spending_money).to eq(5)
+      expect(visitor3.spending_money).to eq(15)
+      
+      ride3.board_rider(visitor2)
+      ride3.board_rider(visitor3)
+      
+      expect(visitor2.spending_money).to eq(5)
+      expect(visitor3.spending_money).to eq(13)
+      expect(ride3.rider_log).to eq(rider3 => 1)
+      expect(ride3.total_revenue).to eq(2)
+    end
+  end
+end
+
+
+
 
 
