@@ -1,12 +1,17 @@
 class Carnival
   attr_reader :name,
               :duration,
-              :rides 
+              :rides,
+              :summary
 
   def initialize(name, duration)
     @name = name
     @duration = duration
     @rides = []
+    @summary =  { visitor: nil, 
+                  revenue_earned: total_revenue, 
+                  visitor: [], 
+                  rides: []}
   end
 
   def add_rides(ride)
@@ -40,6 +45,29 @@ class Carnival
   def total_revenue
     @rides.inject(0) { |sum, ride| sum + ride.total_revenue}
   end
+
+  def generate_summary
+    @summary[:visitor_count] = visitor_finder.count
+    @summary[:revenue_earned] = total_revenue
+    visitor_checker
+    ride_checker 
+
+  end
+
+  def visitor_finder
+    visitors = []
+    rides.each do |ride|
+      visitors << ride.rider_log.keys
+    end
+    visitor.uniq
+  end
+
+  def visitor_checker
+    visitor_finder.each do |visitor|
+      @summary[visitors] += {vistor: visitor, favorite_ride: nil, total_money_spent: 0}
+      rides.each do |ride|
+
+    
 
 
 
