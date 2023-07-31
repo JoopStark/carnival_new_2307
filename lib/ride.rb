@@ -23,13 +23,4 @@ class Ride
       @rider_log[visitor] += 1
     end
   end
-
-
-
-
-
-
-
-
-
 end
