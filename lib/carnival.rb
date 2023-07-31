@@ -46,26 +46,37 @@ class Carnival
     @rides.inject(0) { |sum, ride| sum + ride.total_revenue}
   end
 
-  def generate_summary
-    @summary[:visitor_count] = visitor_finder.count
-    @summary[:revenue_earned] = total_revenue
-    visitor_checker
-    ride_checker 
+  # def generate_summary
+  #   @summary[:visitor_count] = visitor_finder.count
+  #   @summary[:revenue_earned] = total_revenue
+  #   visitor_checker
+  #   # ride_checker 
+  # end
 
-  end
+  # def visitor_finder
+  #   visitors = []
+  #   rides.each do |ride|
+  #     visitors << ride.rider_log.keys
+  #   end
+  #   visitor.uniq
+  # end
 
-  def visitor_finder
-    visitors = []
-    rides.each do |ride|
-      visitors << ride.rider_log.keys
-    end
-    visitor.uniq
-  end
+  # def visitor_checker
+  #   visitor_finder.each do |visitor|
+  #     @summary[visitors] += {vistor: visitor, favorite_ride: nil, total_money_spent: vistor.total_money_spent}
+  #     fav_count = 0
+  #     fav_ride = nil
 
-  def visitor_checker
-    visitor_finder.each do |visitor|
-      @summary[visitors] += {vistor: visitor, favorite_ride: nil, total_money_spent: 0}
-      rides.each do |ride|
+  #     rides.each do |ride|
+  #       if ride.rider_log.count(visitor) > fav_count
+  #         fav_count = ride.rider_log.count(visitor)
+  #         fav_ride = ride
+  #       end
+  #     end
+
+  #     @summary[visitor][favorite_ride: fav_ride]
+  #   end
+  # end
 
     
 
