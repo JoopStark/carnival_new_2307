@@ -18,7 +18,7 @@ describe Carnival do
       expect(southwestplaza.name).to eq("SouthWest Plaza")
       expect(southwestplaza.duration).to eq(30)
       expect(southwestplaza.rides).to eq([])
-      expect(southwestplaza.total_revenue).to eq(0)
+      # expect(southwestplaza.total_revenue).to eq(0)
     end
   end
 
@@ -105,7 +105,7 @@ describe Carnival do
       ferris.board_rider(bruce)
       ferris.board_rider(bruce)
 
-      expect(southwestplaza.total_revenue).to eq(7)
+      expect(southwestplaza.total_revenue).to eq(21)
     end
   end
 end

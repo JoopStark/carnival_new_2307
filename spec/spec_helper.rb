@@ -1,3 +1,3 @@
 require "./lib/ride"
-require "./lib/carival"
+require "./lib/carnival"
 require "./lib/visitor"
